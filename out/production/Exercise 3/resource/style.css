@@ -1,0 +1,36 @@
+#root {
+    -fx-font-size: 12;
+}
+
+#chartView {
+    -fx-alignment: top-center;
+}
+
+#firstTab {
+    -fx-fill-width: true;
+    -fx-alignment: center;
+}
+
+#middleBox {
+    -fx-padding: 40, 10, 40, 10;
+    -fx-background-color: lightblue;
+    -fx-alignment: center;
+}
+
+#logoStack {
+    -fx-padding: 10;
+}
+
+#logoShape {
+    -fx-fill: transparent;
+    -fx-effect: dropshadow(one-pass-box, lightblue, 0, 0, 10, 0);
+}
+
+#logoText {
+    -fx-fill: darkgray;
+    -fx-font-size: 40;
+}
+
+#idField, #lastNameField {
+    -fx-spacing: 5;
+}

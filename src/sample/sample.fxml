@@ -1,0 +1,166 @@
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import java.lang.Double?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.TableColumn?>
+
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TabPane?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.layout.Pane?>
+<fx:root fx:id="root" type="TabPane" xmlns:fx="http://javafx.com/fxml/1">
+    <Tab text="Roaster" closable="false">
+        <VBox minWidth="850" fx:id="upperBox" >
+            <children>
+                <ScrollPane prefWidth="850" prefHeight="600">
+                    <VBox fx:id="firstTab" prefWidth="850">
+                        <!--Logo section-->
+                        <StackPane fx:id="logoStack" maxHeight="0" maxWidth="0">
+                            <Polygon fx:id="logoShape" stroke="darkgray" strokeWidth="5">
+                                <points>
+                                    <Double fx:value="0.0" />
+                                    <Double fx:value="50.0" />
+                                    <Double fx:value="30.0" />
+                                    <Double fx:value="0.0" />
+                                    <Double fx:value="60.0" />
+                                    <Double fx:value="50.0" />
+                                </points>
+                            </Polygon>
+                            <Text text="IN" fx:id="logoText" translateX="0" translateY="12" />
+                        </StackPane>
+                        <MenuBar>
+                            <Menu text="File">
+                                <MenuItem fx:id="menuNew" text="New"></MenuItem>
+                                <MenuItem fx:id="menuOpen" text="Open"></MenuItem>
+                                <MenuItem fx:id="menuSave" text="Save"></MenuItem>
+                                <MenuItem fx:id="menuSaveAs" text="Save As"></MenuItem>
+                                <MenuItem fx:id="menuClose" text="Close"></MenuItem>
+                                <MenuItem fx:id="menuExit" text="Exit"></MenuItem>
+                            </Menu>
+                        </MenuBar>
+
+                        <!-- middle section -->
+                        <FlowPane fx:id="middleBox">
+                            <!-- this might be where the controller for studentForm will go-->
+                            <HBox fx:id="idField">
+                                <padding><Insets top="10" bottom="10" left="10" right="10" /></padding>
+                                <Label text="ID" fx:id="idLabel" />
+                                <TextField fx:id="id" />
+                            </HBox>
+                            <HBox fx:id="lastNameField">
+                                <padding><Insets top="10" bottom="10" left="10" right="10" /></padding>
+                                <Label text="Last Name" fx:id="lastNameLabel" />
+                                <TextField fx:id="lastName" />
+                            </HBox>
+                            <HBox spacing="5">
+                                <padding><Insets top="10" bottom="10" left="10" right="10" /></padding>
+                                <Label text="First Name" fx:id="firstNameLabel" />
+                                <TextField fx:id="firstName" />
+                            </HBox>
+                            <HBox spacing="5">
+                                <padding><Insets top="10" bottom="10" left="10" right="10" /></padding>
+                                <Label text="Major" fx:id="majorLabel" />
+                                <TextField fx:id="major" />
+                            </HBox>
+                            <HBox spacing="5">
+                                <padding><Insets top="10" bottom="10" left="10" right="10" /></padding>
+                                <Label text="Current Grade" fx:id="currGradeLabel" />
+                                <ChoiceBox fx:id="currGrade" />
+                            </HBox>
+                            <HBox spacing="5">
+                                <padding><Insets top="10" bottom="10" left="10" right="10" /></padding>
+                                <fx:define>
+                                    <ToggleGroup fx:id="gradingOption" />
+                                </fx:define>
+
+                                <RadioButton fx:id="letter" text="Letter" toggleGroup="$gradingOption">
+                                    <HBox.margin>
+                                        <Insets right="3.0"/>
+                                    </HBox.margin>
+                                </RadioButton>
+                                <RadioButton fx:id="pnp" text="P/NP" toggleGroup="$gradingOption">
+                                    <HBox.margin>
+                                        <Insets right="3.0"/>
+                                    </HBox.margin>
+                                </RadioButton>
+                            </HBox>
+                            <HBox spacing="5">
+                                <padding><Insets top="10" bottom="10" left="10" right="10" /></padding>
+                                <CheckBox text="Honor Student Status" fx:id="honorStatus" />
+                            </HBox>
+
+                            <HBox spacing="5">
+                                <padding><Insets top="10" bottom="10" left="10" right="10" /></padding>
+                                <Label text="Note" fx:id="noteLabel" />
+                                <TextArea fx:id="notes" prefWidth="300" prefHeight="100" />
+                            </HBox>
+                            <HBox spacing="5">
+                                <padding><Insets top="10" bottom="10" left="10" right="10" /></padding>
+                                <!-- need to add in onAction function -->
+                                <Button fx:id="uploadBtn" text="Upload" />
+                                <ImageView fx:id="imageView" fitWidth="120" preserveRatio="true" />
+                                <TextField fx:id="imgUrl" prefWidth="150"/>
+                            </HBox>
+                            <HBox spacing="5">
+                                <padding><Insets top="30" bottom="10" left="10" right="10" /></padding>
+                                <Button fx:id="previous" text="Previous" />
+                                <Button fx:id="addStudent" text="New Student" />
+                                <Button fx:id="deleteStudent" text="Delete Student" />
+                                <Button fx:id="saveStudent" text="Save Changes" />
+                                <Button fx:id="next" text="Next" />
+                            </HBox>
+                        </FlowPane>
+                    </VBox>
+                </ScrollPane>
+
+                <TableView fx:id="table" editable="true" maxHeight="400">
+                    <columns>
+                        <TableColumn text="Student Image" fx:id="columnImg" />
+                        <TableColumn text="Student ID" fx:id="columnId" />
+                        <TableColumn text="Last Name" fx:id="columnLastName" />
+                        <TableColumn text="First Name" fx:id="columnFirstName" />
+                        <TableColumn text="Major" fx:id="columnMajor" />
+                        <TableColumn text="Current Grade" fx:id="columnGrade" />
+                        <TableColumn text="Grading Option" fx:id="columnGOpt" />
+                        <TableColumn text="Honor Status" fx:id="columnHonorStat" />
+                        <TableColumn text="Notes" fx:id="columnNotes" />
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+    </Tab>
+    <Tab text="Stats" closable="false" fx:id="statsTab">
+        <ScrollPane fx:id="scrollCharts">
+            <VBox fx:id="chartView">
+                <Button fx:id="showPieChart" text="Show PieChart" />
+                <Button fx:id="showBarChart" text="Show BarChart" />
+            </VBox>
+        </ScrollPane>
+    </Tab>
+</fx:root>
